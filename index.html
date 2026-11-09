@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>Muhamad Rizki Firmansyah | Portofolio</title>
+  <style>
+    /* CSS VARIABLES & TEMA (Light & Dark Mode) */
+    :root {
+      --bg-site: #ffffff;
+      --bg-card: #f8f6fb;
+      --purple-accent: #6c5ce7;
+      --purple-dark: #4b3bc6;
+      --purple-light: #ece7f5;
+      --text-main: #111111;
+      --text-muted: #666666;
+      --white: #ffffff;
+      --border-color: transparent;
+      --modal-bg: #ffffff;
+      --icon-fill: #6c5ce7;
+    }
+
+    [data-theme="dark"] {
+      --bg-site: #0b071e;
+      --bg-card: #140f34;
+      --purple-accent: #9c88ff;
+      --purple-dark: #6c5ce7;
+      --purple-light: #241b52;
+      --text-main: #f1f2f6;
+      --text-muted: #a4b0be;
+      --white: #ffffff;
+      --border-color: #241b52;
+      --modal-bg: #110b30;
+      --icon-fill: #9c88ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-site);
+      color: var(--text-main);
+      padding: 0;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* NAVIGATION BAR */
+    .main-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 24px;
+      background: var(--bg-site);
+      flex-wrap: wrap;
+      gap: 15px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      border-bottom: 1px solid var(--purple-light);
+    }
+
+    .logo-relog {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--purple-accent);
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text-main);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--purple-accent);
+    }
+
+    .theme-toggle-btn {
+      background-color: var(--bg-card);
+      border: 1px solid var(--purple-light);
+      color: var(--text-main);
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .theme-toggle-btn:hover {
+      background-color: var(--purple-light);
+    }
+
+    /* DASHBOARD HOME FULL SCREEN */
+    .dashboard-home {
+      width: 100%;
+      min-height: 100vh;
+      background-image: url('image/background-dashboard.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 24px;
+      position: relative;
+    }
+
+    .dashboard-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(11, 7, 30, 0.85) 0%, rgba(20, 15, 52, 0.75) 100%);
+    }
+
+    .dashboard-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-text {
+      flex: 1 1 500px;
+      color: #ffffff;
+    }
+
+    .greeting {
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #c4b5fd;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+
+    .name-animation {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 20px;
+      line-height: 1.2;
+      min-height: 80px;
+    }
+
+    .cursor-blink {
+      display: inline-block;
+      width: 3px;
+      height: 3.5rem;
+      background-color: var(--purple-accent);
+      margin-left: 4px;
+      animation: blink 0.8s infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .short-desc {
+      font-size: 1.15rem;
+      color: #e2e8f0;
+      line-height: 1.7;
+      max-width: 550px;
+      margin-bottom: 30px;
+      border-left: 3px solid var(--purple-accent);
+      padding-left: 20px;
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background-color: var(--purple-accent);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-cta:hover {
+      background-color: var(--purple-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3);
+    }
+
+    .dashboard-photo {
+      flex: 0 0 320px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-frame {
+      width: 320px;
+      height: 320px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+      background-color: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* TENTANG SAYA */
+    .about-flex-row {
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .about-text-side {
+      flex: 1 1 55%;
+    }
+
+    .about-photo-side {
+      flex: 0 0 280px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-square {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      background-color: var(--bg-card);
+      border: 2px solid var(--purple-light);
+      border-radius: 24px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .photo-square img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .narrative-box {
+      border-left: 3px solid var(--purple-accent);
+      padding-left: 20px;
+      margin-bottom: 20px;
+      text-align: justify;
+      font-size: 1.05rem;
+      color: var(--text-main);
+      line-height: 1.7;
+    }
+
+    /* DATA DIRI */
+    .data-diri-section {
+      margin: 50px 0 60px;
+    }
+
+    .meta-info {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 24px;
+      border-radius: 16px;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+    }
+
+    .meta-info li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.95rem;
+    }
+
+    .meta-info li svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--icon-fill);
+      flex-shrink: 0;
+    }
+
+    .meta-info li div {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .meta-info li strong {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-info li span {
+      font-weight: 500;
+      color: var(--text-main);
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 25px;
+    }
+
+    /* PENGALAMAN GRID */
+    .experience-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .exp-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .exp-card:hover {
+      border-color: var(--purple-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(108, 92, 231, 0.08);
+    }
+
+    .exp-banner-placeholder {
+      width: 100%;
+      height: 180px;
+      background-color: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .exp-banner-placeholder img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder sementara untuk foto yang belum tersedia */
+    .exp-banner-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      color: var(--text-muted);
+      background: repeating-linear-gradient(
+        45deg,
+        var(--purple-light),
+        var(--purple-light) 10px,
+        var(--bg-card) 10px,
+        var(--bg-card) 20px
+      );
+    }
+
+    .exp-banner-fallback .fallback-icon {
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .exp-banner-fallback .fallback-text {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .exp-detail-text {
+      padding: 20px;
+    }
+
+    .exp-detail-text h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .exp-detail-text p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    /* Baris tombol (bisa lebih dari 1 tombol) */
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .btn-lihat-porto {
+      display: inline-block;
+      background-color: var(--purple-accent);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.2s;
+      line-height: 1.2;
+    }
+
+    .btn-lihat-porto:hover {
+      background-color: var(--purple-dark);
+    }
+
+    /* Tombol sekunder (placeholder) */
+    .btn-lihat-porto.secondary {
+      background-color: transparent;
+      color: var(--purple-accent);
+      border: 1.5px solid var(--purple-accent);
+    }
+
+    .btn-lihat-porto.secondary:hover {
+      background-color: var(--purple-light);
+      color: var(--purple-dark);
+    }
+
+    /* KONTAK FORUM */
+    .contact-forum {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 45px 35px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    .contact-forum h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: var(--text-main);
+    }
+
+    .contact-forum .sub-text {
+      color: var(--text-muted);
+      margin-bottom: 30px;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .contact-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .contact-icon-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 500;
+      transition: transform 0.2s ease;
+    }
+
+    .contact-icon-link:hover {
+      transform: translateY(-3px);
+    }
+
+    .icon-circle {
+      width: 56px;
+      height: 56px;
+      background-color: var(--purple-accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      transition: background-color 0.2s;
+    }
+
+    .contact-icon-link:hover .icon-circle {
+      background-color: var(--purple-dark);
+    }
+
+    .icon-circle svg {
+      width: 26px;
+      height: 26px;
+      fill: white;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background-color: var(--modal-bg);
+      border: 1px solid var(--border-color);
+      width: 90%;
+      max-width: 700px;
+      max-height: 85vh;
+      border-radius: 24px;
+      overflow-y: auto;
+      position: relative;
+      transform: scale(0.95);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      padding: 35px;
+    }
+
+    .modal-overlay.active .modal-content {
+      transform: scale(1);
+    }
+
+    .close-modal-btn {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      background-color: var(--bg-card);
+      color: var(--text-main);
+      border: none;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-header-meta {
+      margin-bottom: 20px;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-bottom: 1px solid var(--purple-light);
+      padding-bottom: 15px;
+    }
+
+    .modal-body-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+      text-align: justify;
+      color: var(--text-main);
+    }
+
+    /* Blok list di dalam modal (untuk pengalaman kerja) */
+    .modal-block {
+      margin-bottom: 22px;
+    }
+
+    .modal-block h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--purple-accent);
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-block p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      text-align: justify;
+      margin-bottom: 8px;
+    }
+
+    .modal-block ul {
+      margin: 0 0 0 20px;
+      padding: 0;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+    }
+
+    .modal-block ul li {
+      margin-bottom: 8px;
+      text-align: justify;
+    }
+
+    .modal-block ul li strong {
+      color: var(--text-main);
+    }
+
+    .modal-gallery-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+
+    .modal-gallery-grid.single-col {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-img-box {
+      width: 100%;
+      height: 220px;
+      background-color: var(--purple-light);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      border: 1px dashed var(--purple-accent);
+    }
+
+    .gallery-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder sementara untuk galeri foto yang belum tersedia */
+    .gallery-img-fallback {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-muted);
+      background: repeating-linear-gradient(
+        45deg,
+        var(--purple-light),
+        var(--purple-light) 10px,
+        var(--bg-card) 10px,
+        var(--bg-card) 20px
+      );
+    }
+
+    .gallery-img-fallback .fallback-icon {
+      font-size: 1.6rem;
+      line-height: 1;
+    }
+
+    .gallery-img-fallback .fallback-text {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    /* ============================================= */
+    /* DAFTAR SERTIFIKAT (format baru galeri) */
+    /* ============================================= */
+    .sertifikat-list {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      margin-top: 10px;
+    }
+
+    .sertifikat-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--purple-light);
+      border-radius: 16px;
+      padding: 18px;
+      transition: border-color 0.2s;
+    }
+
+    .sertifikat-item:hover {
+      border-color: var(--purple-accent);
+    }
+
+    .sertifikat-item h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.35;
+    }
+
+    /* Foto sertifikat (bisa diklik untuk zoom) */
+    .sertifikat-photo {
+      width: 100%;
+      max-height: 340px;
+      background-color: var(--purple-light);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px dashed var(--purple-accent);
+      cursor: zoom-in;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      position: relative;
+    }
+
+    .sertifikat-photo img {
+      width: 100%;
+      height: 100%;
+      max-height: 340px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+      background-color: #1a1035;
+    }
+
+    .sertifikat-photo:hover img {
+      transform: scale(1.02);
+    }
+
+    /* Label zoom di sudut foto */
+    .sertifikat-photo::after {
+      content: "🔍 Klik untuk zoom";
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background-color: rgba(17, 17, 17, 0.75);
+      color: #ffffff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 20px;
+      pointer-events: none;
+      letter-spacing: 0.3px;
+    }
+
+    /* Fallback jika foto belum ada */
+    .sertifikat-photo .gallery-img-fallback {
+      min-height: 220px;
+    }
+
+    .sertifikat-info {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-main);
+      text-align: justify;
+    }
+
+    .sertifikat-info strong {
+      color: var(--purple-accent);
+    }
+
+    /* ============================================= */
+    /* LIGHTBOX ZOOM FOTO */
+    /* ============================================= */
+    .lightbox-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 2000;
+      padding: 24px;
+    }
+
+    .lightbox-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .lightbox-img {
+      max-width: 95%;
+      max-height: 92vh;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      transform: scale(0.95);
+      transition: transform 0.25s ease;
+    }
+
+    .lightbox-overlay.active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.15);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.2s;
+    }
+
+    .lightbox-close:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #ffffff;
+      font-size: 0.85rem;
+      font-weight: 500;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 6px 16px;
+      border-radius: 20px;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    /* CAROUSEL STYLE (KHUSUS SERTIFIKAT - UKURAN PORTRAIT) */
+    .carousel-wrapper {
+      margin-bottom: 25px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      height: 580px;
+      overflow: hidden;
+      border-radius: 12px;
+      background-color: var(--purple-light);
+      margin: 0 auto;
+    }
+
+    .carousel-slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s ease-in-out;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--purple-light);
+      overflow: hidden;
+    }
+
+    .carousel-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background-color: #1a1035;
+    }
+
+    .carousel-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .carousel-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: var(--purple-light);
+      border: 2px solid var(--purple-accent);
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-dot.active {
+      background-color: var(--purple-accent);
+    }
+
+    .section-divider {
+      border-top: 1px solid var(--purple-light);
+      margin: 20px 0;
+      padding-top: 5px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-align: center;
+    }
+
+    .porto-link-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .porto-link-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--purple-light);
+      border-radius: 14px;
+      padding: 18px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .porto-link-item span {
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .porto-link-item a {
+      background-color: var(--purple-accent);
+      color: white;
+      padding: 8px 16px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .porto-link-item a:hover {
+      background-color: var(--purple-dark);
+    }
+
+    /* FOOTER COPYRIGHT */
+    .footer-copyright {
+      text-align: center;
+      padding: 0 0 30px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .dashboard-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .dashboard-text {
+        flex: 1 1 auto;
+      }
+      .name-animation {
+        font-size: 2.4rem;
+        min-height: 60px;
+      }
+      .cursor-blink {
+        height: 2.4rem;
+      }
+      .short-desc {
+        margin: 0 auto 25px;
+      }
+      .dashboard-photo {
+        flex: 0 0 250px;
+      }
+      .photo-frame {
+        width: 250px;
+        height: 250px;
+      }
+      .about-flex-row {
+        flex-direction: column;
+      }
+      .about-photo-side {
+        flex: 0 0 220px;
+        width: 100%;
+      }
+      .meta-info {
+        grid-template-columns: 1fr;
+      }
+      .experience-grid {
+        grid-template-columns: 1fr;
+      }
+      .modal-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+      .carousel-container {
+        max-width: 320px;
+        height: 440px;
+      }
+      .sertifikat-photo {
+        max-height: 260px;
+      }
+      .sertifikat-photo img {
+        max-height: 260px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVIGASI STICKY -->
+<header class="main-nav">
+  <a onclick="window.location.reload();" class="logo-relog">MUHAMAD RIZKI FIRMANSYAH</a>
+  <div class="nav-right">
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#tentang">Tentang</a>
+      <a href="#pengalaman">Pengalaman</a>
+      <a href="#kontak-section">Kontak</a>
+    </nav>
+    <button class="theme-toggle-btn" onclick="toggleTheme()" id="themeBtn">
+      🌙 Mode Gelap
+    </button>
+  </div>
+</header>
+
+<!-- DASHBOARD HOME -->
+<section id="home" class="dashboard-home">
+  <div class="dashboard-overlay"></div>
+  <div class="dashboard-content">
+    <div class="dashboard-text">
+      <p class="greeting">Halo, Saya</p>
+      <h1 class="name-animation">
+        <span id="typed-name"></span><span class="cursor-blink"></span>
+      </h1>
+      <p class="short-desc">
+        Menjembatani dunia teknologi dan kreativitas: memadukan pengembangan perangkat lunak yang andal dengan strategi konten berbasis data guna menciptakan pengalaman digital yang interaktif dan bermakna.
+      </p>
+      <a href="mailto:zxcoriski26@gmail.com" class="btn-cta">📧 Contact Me</a>
+    </div>
+    <div class="dashboard-photo">
+      <div class="photo-frame">
+        <img src="https://drive.google.com/thumbnail?id=1NOTLNHYDp92KNzbY9oT-gDr8jg_zNwfz&sz=w1000" alt="Foto Muhamad Rizki Firmansyah">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KONTEN UTAMA -->
+<div class="container">
+
+  <!-- TENTANG SAYA -->
+  <section id="tentang" class="about-flex-row" style="margin-top: 60px;">
+    <div class="about-text-side">
+      <h2 class="section-title">Tentang Saya</h2>
+      <div class="narrative-box">
+        Sebagai seorang Tech-Enthusiast dengan spesialisasi Rekayasa Perangkat Lunak dan lulusan SMK Negeri 2 Buduran Sidoarjo, saya memiliki fondasi kuat dalam pengembangan aplikasi web full-stack (Laravel) yang aman serta aplikasi mobile yang interaktif.
+      </div>
+      <div class="narrative-box">
+        Selain keahlian teknis tersebut, saya juga memiliki pengalaman profesional yang luas sebagai Content Creator dan Content Leader di agensi digital marketing (Juni – November 2026). Di bidang kreatif dan digital marketing, saya terbiasa mengoperasikan CapCut dan Canva untuk memproduksi rata-rata 4 konten video serta 2 konten desain grafis per hari (mencapai lebih dari 200 reels dan 150 desain grafis secara total) berdasarkan content calendar yang terstruktur.
+      </div>
+      <div class="narrative-box">
+        Saya memiliki keahlian dalam merancang strategi konten berbasis riset pasar—menggabungkan konsep entertainment dan promosi secara mulus untuk memaksimalkan engagement di platform Instagram dan YouTube hingga menembus sekitar 80.000 views. Rekam jejak kerja saya juga diperkuat oleh pengalaman mengelola komunikasi langsung dengan klien via Zoom, mengemban tanggung jawab sebagai Content Leader untuk mengawasi operasional harian tim, serta meraih penghargaan "The Best Manager" dalam program Student Company.
+      </div>
+    </div>
+    <div class="about-photo-side">
+      <div class="photo-square">
+        <img src="https://drive.google.com/thumbnail?id=1NOTLNHYDp92KNzbY9oT-gDr8jg_zNwfz&sz=w1000" alt="Foto Muhamad Rizki Firmansyah">
+      </div>
+    </div>
+  </section>
+
+  <!-- INFORMASI DATA DIRI -->
+  <section id="data-diri" class="data-diri-section">
+    <h2 class="section-title">Informasi Data Diri</h2>
+    <ul class="meta-info">
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM3.81 9L12 4.53 20.19 9 12 13.47 3.81 9zM12 15.53L6 12.26V15c0 1.66 2.69 3 6 3s6-1.34 6-3v-2.74l-6 3.27z"/></svg>
+        <div><strong>Pendidikan</strong><span>SMKN 2 Buduran</span></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <div><strong>Email</strong><span>zxcoriski26@gmail.com</span></div>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <div><strong>Domisili</strong><span>Sidoarjo, Jawa Timur</span></div>
+      </li>
+    </ul>
+  </section>
+
+  <!-- PENGALAMAN KERJA & KARYA -->
+  <section id="pengalaman">
+    <h2 class="section-title">Pengalaman Kerja & Karya</h2>
+    <div class="experience-grid">
+
+      <!-- PENGALAMAN KERJA -->
+      <div class="exp-card" onclick="openModal('kerja')">
+        <div class="exp-banner-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1_rgBUfJSCUyRy3B7Jot7fS22aS4u0cdk&sz=w1000" alt="PT Jago Bisnis Nusantara">
+        </div>
+        <div class="exp-detail-text">
+          <h3>Pengalaman Kerja</h3>
+          <p>Content Creator & Content Leader — JB Digital Agency (Juni–November 2026).</p>
+          <div class="btn-row">
+            <a href="https://drive.google.com/drive/folders/1DriGpu5PtNSHgWGKm0F92c5P6DPIVNzI"
+               target="_blank" rel="noopener"
+               class="btn-lihat-porto"
+               onclick="event.stopPropagation();">
+              📁 Hasil Content Saya
+            </a>
+            <button class="btn-lihat-porto secondary"
+                    onclick="event.stopPropagation(); showVideoReels();">
+              🎬 Beberapa Konten Video
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAGANG -->
+      <div class="exp-card" onclick="openModal('magang')">
+        <div class="exp-banner-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=19TxCzfwv1BIUPJjk6SuqznQcHkEPjVVi&sz=w1000" alt="Dinas Kominfo Sidoarjo">
+        </div>
+        <div class="exp-detail-text">
+          <h3>Pengalaman Magang</h3>
+          <p>Produksi aset komunikasi kreatif dan manajemen informasi publik instansi.</p>
+          <div class="btn-row">
+            <button class="btn-lihat-porto" onclick="event.stopPropagation(); openPortoPopup();">
+              🔥 Lihat Portfolio Kominfo
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- KEJURUAN -->
+      <div class="exp-card" onclick="openModal('kejuruan')">
+        <div class="exp-banner-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1-W02qHVO9aNMusdrk6cW19l-Io5rA1B5&sz=w1000" alt="Project Kejuruan">
+        </div>
+        <div class="exp-detail-text">
+          <h3>Pengalaman Kejuruan</h3>
+          <p>Pengembangan arsitektur basis data dan logika aplikasi web/mobile.</p>
+        </div>
+      </div>
+
+      <!-- ORGANISASI -->
+      <div class="exp-card" onclick="openModal('organisasi')">
+        <div class="exp-banner-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1NARlBIruHC2WV5SLUDVarBvGvJWNx1jU&sz=w1000" alt="Student Company">
+        </div>
+        <div class="exp-detail-text">
+          <h3>Pengalaman Organisasi</h3>
+          <p>Manajemen tim operasional, administrasi internal, dan kontrol teknis perangkat.</p>
+        </div>
+      </div>
+
+      <!-- SERTIFIKAT -->
+      <div class="exp-card" onclick="openModal('sertifikat')">
+        <div class="exp-banner-placeholder">
+          <img src="https://drive.google.com/thumbnail?id=1BII0sqey1KqvAn5259gz-a3wd1MnpQhw&sz=w1000" alt="Sertifikasi & Lisensi">
+        </div>
+        <div class="exp-detail-text">
+          <h3>Sertifikat Kompetensi</h3>
+          <p>Berkas dokumentasi validasi keahlian pemrograman dan penghargaan industri.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KONTAK FORUM -->
+  <section id="kontak-section" class="contact-forum">
+    <h2>Mari Terhubung</h2>
+    <p class="sub-text">Terbuka untuk peluang kolaborasi, proyek freelance, atau posisi penuh waktu. <br>Jangan ragu untuk menyapa melalui kontak di bawah ini.</p>
+    <div class="contact-icons">
+      <a href="mailto:zxcoriski26@gmail.com" class="contact-icon-link">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </div>
+        <span>Email</span>
+      </a>
+      <a href="https://www.instagram.com/yi_peng_sheng?igsh=MWNwbmpqdTlxMzd1MA==" target="_blank" rel="noopener" class="contact-icon-link" id="instagramLink">
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+        </div>
+        <span>Instagram</span>
+      </a>
+    </div>
+  </section>
+
+</div>
+
+<!-- FOOTER COPYRIGHT 2026 -->
+<div class="footer-copyright">
+  © 2026 Muhamad Rizki Firmansyah – Siap bekerja sama.
+</div>
+
+<!-- MODAL DETAIL PENGALAMAN -->
+<div class="modal-overlay" id="detailModal" onclick="closeModal(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal-btn" onclick="hideModal()">✕</button>
+    <h2 id="modalTitle" style="font-size: 1.8rem; margin-bottom: 8px;">Judul</h2>
+    <div class="modal-header-meta">
+      <strong>Kategori:</strong> <span id="modalCategory">-</span> |
+      <strong>Periode:</strong> <span id="modalDate">-</span>
+    </div>
+
+    <!-- Isi teks standar (dipakai untuk modal selain "kerja") -->
+    <div class="modal-body-text" id="modalText">Deskripsi.</div>
+
+    <!-- Blok kaya (khusus pengalaman kerja) -->
+    <div id="modalRichContent" style="display: none;"></div>
+
+    <!-- Area Carousel (khusus sertifikat) -->
+    <div id="carouselArea" style="display: none;">
+      <div class="section-divider">📷 Banner Sertifikat</div>
+      <div class="carousel-wrapper">
+        <div class="carousel-container" id="carouselContainer">
+          <div class="carousel-slides" id="carouselSlides"></div>
+        </div>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+      <div class="section-divider">📜 Daftar Sertifikat</div>
+    </div>
+
+    <!-- Daftar sertifikat (format baru: nama + foto zoom + info) -->
+    <div class="sertifikat-list" id="sertifikatList"></div>
+
+    <!-- Gallery Grid untuk foto biasa -->
+    <div class="modal-gallery-grid" id="modalGallery"></div>
+  </div>
+</div>
+
+<!-- MODAL POP UP LINK PORTFOLIO KOMINFO -->
+<div class="modal-overlay" id="portoPopup" onclick="closePortoPopup(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal-btn" onclick="hidePortoPopup()">✕</button>
+    <h2 style="font-size: 1.6rem; margin-bottom: 8px;">📸 Portfolio Digital Kominfo</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Klik salah satu untuk melihat hasil karya langsung di Instagram. 🚀</p>
+    <div class="porto-link-list">
+      <div class="porto-link-item">
+        <span>🎬 Pembuatan Reels Instagram</span>
+        <a href="https://www.instagram.com/reel/DNciBtqpipJ/?igsh=MWN4cG8zeXEyM2E5NQ==" target="_blank" rel="noopener">Lihat Reel</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📘 Konten Edukatif Instagram</span>
+        <a href="https://www.instagram.com/p/DNCUVSyJDJm/?igsh=MXhxZ2l4OXcxcDdqeQ==" target="_blank" rel="noopener">Lihat Konten</a>
+      </div>
+      <div class="porto-link-item">
+        <span>🎤 Menjau Telent (Showcase)</span>
+        <a href="https://www.instagram.com/reel/DLCJhMoJ1aT/?igsh=amYwOWRxZnBsNDd2" target="_blank" rel="noopener">Lihat Reel</a>
+      </div>
+    </div>
+    <p style="margin-top: 18px; font-size: 0.85rem; color: var(--text-muted);">✨ Setiap tautan menunjukkan kontribusi nyata selama magang.</p>
+  </div>
+</div>
+
+<!-- MODAL POP UP KONTEN VIDEO REELS -->
+<div class="modal-overlay" id="videoReelsPopup" onclick="closeVideoReels(event)">
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <button class="close-modal-btn" onclick="hideVideoReels()">✕</button>
+    <h2 style="font-size: 1.6rem; margin-bottom: 8px;">🎬 Konten Video Reels</h2>
+    <p style="color: var(--text-muted); margin-bottom: 20px;">Beberapa konten reels saya yang berhasil hype dan sukses menarik penonton. Klik untuk menonton langsung! 🚀</p>
+    <div class="porto-link-list">
+      <div class="porto-link-item">
+        <span>🎥 YouTube Shorts #1</span>
+        <a href="https://youtube.com/shorts/0_MVVyvs608?si=N-vqcormDBbDF4Ph" target="_blank" rel="noopener">Tonton Video</a>
+      </div>
+      <div class="porto-link-item">
+        <span>🎥 YouTube Shorts #2</span>
+        <a href="https://youtube.com/shorts/Ekl3YsiY9So?si=Ps1tspMb7uQ8vD9C" target="_blank" rel="noopener">Tonton Video</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📱 Instagram Reels #1</span>
+        <a href="https://www.instagram.com/reel/DfRILi4pX9H/?psln=ejNwZ3V6bTN1eHhw" target="_blank" rel="noopener">Tonton Reel</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📱 Instagram Reels #2</span>
+        <a href="https://www.instagram.com/reel/DcSwI7Bp2I0/?psln=cXllanhiZDIzanRi" target="_blank" rel="noopener">Tonton Reel</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📱 Instagram Reels #3</span>
+        <a href="https://www.instagram.com/reel/DaefdVXA3OD/?cplk=Z3V4MzlhcHVlbHZv" target="_blank" rel="noopener">Tonton Reel</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📱 Instagram Reels #4</span>
+        <a href="https://www.instagram.com/reel/Ddn16xyvpBD/?vrfl=d2R3Ym12b3FmaW14" target="_blank" rel="noopener">Tonton Reel</a>
+      </div>
+      <div class="porto-link-item">
+        <span>📱 Instagram Reels #5</span>
+        <a href="https://www.instagram.com/reel/DbHgx1wo7-A/?rpxt=eWRxb3hjbThvNTY0" target="_blank" rel="noopener">Tonton Reel</a>
+      </div>
+    </div>
+    <p style="margin-top: 18px; font-size: 0.85rem; color: var(--text-muted);">✨ Setiap tautan menunjukkan kontribusi nyata selama bekerja.</p>
+  </div>
+</div>
+
+<!-- LIGHTBOX ZOOM FOTO SERTIFIKAT -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="hideLightbox()">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Zoom Sertifikat">
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+  // =============================================
+  // ANIMASI KETIK NAMA (TYPEWRITER EFFECT)
+  // =============================================
+  const nameText = "Rizki Firmansyah";
+  const typedNameElement = document.getElementById('typed-name');
+  let charIndex = 0;
+  let isDeleting = false;
+  let typingSpeed = 100;
+
+  function typeAnimation() {
+    if (!isDeleting) {
+      if (charIndex < nameText.length) {
+        typedNameElement.textContent += nameText.charAt(charIndex);
+        charIndex++;
+        setTimeout(typeAnimation, typingSpeed);
+      } else {
+        setTimeout(() => {
+          isDeleting = true;
+          typeAnimation();
+        }, 2000);
+      }
+    } else {
+      if (charIndex > 0) {
+        typedNameElement.textContent = nameText.substring(0, charIndex - 1);
+        charIndex--;
+        setTimeout(typeAnimation, 50);
+      } else {
+        isDeleting = false;
+        setTimeout(typeAnimation, 500);
+      }
+    }
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(typeAnimation, 300);
+  });
+
+  // =============================================
+  // DATA PENGALAMAN
+  // =============================================
+  const experienceData = {
+
+    // ---- PENGALAMAN KERJA ----
+    kerja: {
+      title: "PT Jago Bisnis Nusantara (JB Digital Agency)",
+      category: "Content Creator & Content Leader",
+      date: "Juni 2026 – November 2026 | Sidoarjo, Jawa Timur",
+      text: "Bertanggung jawab penuh atas alur produksi visual dan strategi konten digital agensi secara end-to-end, mencakup riset pasar, perencanaan ide kreatif, penyuntingan media, hingga evaluasi performa. Berperan ganda sebagai creator dengan tingkat produktivitas tinggi serta memimpin operasional tim konten untuk memastikan pemenuhan kualifikasi dan engagement klien.",
+      richContent: `
+        <div class="modal-block">
+          <h4>Ringkasan Peran</h4>
+          <p>Bertanggung jawab penuh atas alur produksi visual dan strategi konten digital agensi secara end-to-end, mencakup riset pasar, perencanaan ide kreatif, penyuntingan media, hingga evaluasi performa. Berperan ganda sebagai creator dengan tingkat produktivitas tinggi serta memimpin operasional tim konten untuk memastikan pemenuhan kualifikasi dan engagement klien.</p>
+        </div>
+
+        <div class="modal-block">
+          <h4>Tanggung Jawab Utama & Pencapaian</h4>
+          <ul>
+            <li><strong>Eksekusi Konten Beroutput Tinggi (High-Volume Production):</strong> Mengoperasikan CapCut dan Canva secara harian dengan produktivitas rata-rata 4 konten video dan 2 desain grafis per hari. Berhasil merampungkan total 200+ video reels serta 150+ desain grafis berkualitas tinggi yang dioptimalkan untuk Instagram dan TikTok.</li>
+            <li><strong>Strategi Konten Berbasis Data & Riset:</strong> Merancang content calendar berbasis riset pasar yang mendalam. Mengembangkan formula konten hybrid yang menggabungkan konsep entertainment/trend (sebagai hook) dengan soft-selling promotion secara mulus untuk memaksimalkan retensi audiens. Berhasil membawa performa jangkauan konten klien menembus angka 80.000+ views.</li>
+            <li><strong>Manajemen Portofolio Lintas Industri:</strong> Mengelola dan memproduksi aset visual untuk portofolio klien beragam sektor, meliputi Properti & Akomodasi (pemasaran perumahan & manajemen kos), Hukum & Konsultasi (materi edukasi advokat), Manufaktur & Ritel (katalog produk & outdoor gear), Pendidikan & Kesehatan (bimbingan bahasa & Medical Check-Up), serta personal branding korporat/mentor bisnis.</li>
+            <li><strong>Kepemimpinan & Komunikasi Klien (Content Leader):</strong> Dipercaya mengemban tanggung jawab sebagai Content Leader (periode Sep – Okt 2026) untuk mengawasi operasional harian tim, mengontrol standar kualitas visual, serta membimbing anggota dalam mengatasi kendala teknis. Mewakili agensi secara langsung dalam presentasi ide, koordinasi strategi, dan diskusi evaluasi bersama para klien melalui platform Zoom Meeting.</li>
+          </ul>
+        </div>
+
+        <div class="modal-block">
+          <h4>🛠️ Keahlian Utama</h4>
+          <ul>
+            <li><strong>Tools & Software:</strong> CapCut, Canva, Laravel (Web Development), Android Studio (Mobile Development).</li>
+            <li><strong>Core Competencies:</strong> Content Strategy, Content Calendar Planning, Social Media Marketing (IG & TikTok), Video Editing & Motion Graphic, Graphic Design, Copywriting & Storytelling.</li>
+            <li><strong>Soft Skills:</strong> Team Leadership, Client Communication (Zoom Pitching), Public Speaking & Voice Over, Public Relations, Adaptabilitas Tinggi.</li>
+          </ul>
+        </div>
+      `,
+      images: [],
+      carousel: null
+    },
+
+    kejuruan: {
+      title: "Pengalaman Kejuruan (RPL)",
+      category: "Software Development",
+      date: "Studi Kompetensi Keahlian",
+      text: "Fokus mendalam pada perancangan logika aplikasi backend dan frontend. Menguasai alur kerja pengembangan web terstruktur dengan framework Laravel serta pembuatan aplikasi mobile native lewat Android Studio. Implementasi mencakup perancangan skema relasi basis data menggunakan MySQL serta penerapan fungsi logika CRUD yang aman dan dioptimalkan untuk kecepatan pemrosesan data.",
+      images: [
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1F4N6XCHDRbsIHvdhkeaCmvuMyloKkBDP&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1-W02qHVO9aNMusdrk6cW19l-Io5rA1B5&sz=w1000' }
+      ],
+      carousel: null
+    },
+    magang: {
+      title: "Magang di Dinas Kominfo Sidoarjo",
+      category: "Tim Kreatif & Publikasi Komunikasi",
+      date: "April 2025 - September 2025",
+      text: "Berperan aktif sebagai Tim Kreatif dalam memproduksi aset informasi digital publik resmi instansi. Mengembangkan konsep serta memproduksi desain poster berkala untuk hari besar nasional maupun internasional. Bertanggung jawab pula dalam melakukan peliputan kegiatan rapat pemerintahan di lapangan dan mengolah materi rekaman tersebut menjadi video rangkuman pendek (highlight) yang informatif dan siap publikasi.",
+      images: [
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=19TxCzfwv1BIUPJjk6SuqznQcHkEPjVVi&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1UQQbSxC_wFxZU000ds-vmHIWX4Cho97I&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1n2bx_1OKO_r5CyDs4Me4C4FyfgpKNOhm&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1OtFKHkveo0dcd42aSIT1JpZ_0eC19iOE&sz=w1000' }
+      ],
+      carousel: null
+    },
+    organisasi: {
+      title: "Pengalaman di Student Company",
+      category: "Manajemen Operasional & Administrasi",
+      date: "Agustus 2023 - Mei 2025",
+      text: "Mengembangkan kecakapan manajerial tim melalui dua posisi penting. Pada periode pertama, bertanggung jawab penuh atas pencatatan kehadiran (attendance), kontrol administrasi internal data, serta kesiapan teknis rapat koordinasi. Bertindak pula sebagai teknisi operator layar LED Screen pada acara-acara besar yang memerlukan tingkat akurasi tinggi. Pada periode kedua, dipercaya memimpin koordinasi tim sebagai Ketua Koordinator guna mendampingi pengembangan kapasitas anggota baru dan memastikan program utama berjalan terstruktur.",
+      images: [
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1NARlBIruHC2WV5SLUDVarBvGvJWNx1jU&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1YCGthyrsXn8xcoqpBKA5c-0kyln7zg5p&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1uI779y-6P1j6MIlQCfJHso2r2AKAXYWa&sz=w1000' }
+      ],
+      carousel: null
+    },
+    sertifikat: {
+      title: "Sertifikat Kompetensi & Penghargaan",
+      category: "Validasi Profesional Industri",
+      date: "Dokumentasi Pencapaian Berkelanjutan",
+      text: "Kumpulan bukti otentik pengakuan keahlian dan kontribusi kerja di bidang teknologi, kreatif, dan manajemen. Mencakup lembar sertifikasi keahlian teknis Rekayasa Perangkat Lunak resmi, piagam apresiasi kepemimpinan internal tim terbaik di lingkungan organisasi, sertifikat kelulusan program magang industri dengan predikat optimal, serta penghargaan resmi dari dunia kerja profesional seperti Best Manager, Bootcamp Digital Marketing, dan Employee of the Month di Jabis Group.",
+      images: [],
+      carousel: [
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1on3CeVRK_NDbYtFNwJ9t7Q_b6V_JaSiu&sz=w1000' },
+        { type: 'image', src: 'https://drive.google.com/thumbnail?id=1-RMr3Zs0RpC_T-a57gZQxyewS1xBxBHg&sz=w1000' }
+      ],
+      sertifikatList: [
+        {
+          nama: "Best Manager Program Ekstra Student Company Gen 17",
+          foto: "https://drive.google.com/thumbnail?id=1js6O7h6v2xoUxtXUw4UKbzbKP5l5A9l1&sz=w1000",
+          info: "Meraih penghargaan bergengsi sebagai \"The Best Manager\", sebuah apresiasi berbobot tinggi yang hanya dianugerahkan kepada 3 manajer terbaik di tiap generasinya dalam kurun waktu satu tahun. Penghargaan ini menjadi bukti nyata atas kapasitas kepemimpinan eksklusif, ketajaman manajemen operasional, serta kemampuan strategis dalam mengarahkan tim hingga mencapai performa bisnis puncak."
+        },
+        {
+          nama: "Sertifikat Magang Dinas Komunikasi dan Informasi",
+          foto: "https://drive.google.com/thumbnail?id=1OtFKHkveo0dcd42aSIT1JpZ_0eC19iOE&sz=w1000",
+          info: "Menjalani program magang profesional di instansi pemerintahan Dinas Kominfo Sidoarjo selama 6 bulan penuh. Berhasil menyelesaikan penugasan dengan predikat \"Sangat Baik\", yang membuktikan kedisiplinan, kemampuan beradaptasi di lingkungan birokrasi profesional, serta standar kerja yang dapat diandalkan."
+        },
+        {
+          nama: "Bootcamp Magang Jabis Group",
+          foto: "https://drive.google.com/thumbnail?id=1_5XDiH4GEDkxRePhdxOhCYpaV3uhSdZA&sz=w1000",
+          info: "Resmi lulus sebagai peserta terbaik dari Bootcamp Batch 13 Jabis Group (Digital Marketing & Content Creator). Berkat dedikasi, kompetensi teknis, dan produktivitas yang ditunjukkan selama masa pelatihan, saya berhasil dipercaya untuk melanjutkan kontribusi secara sah sebagai bagian dari tim profesional perusahaan."
+        },
+        {
+          nama: "Penghargaan Karyawan Terbaik (Employee of the Month)",
+          foto: "https://drive.google.com/thumbnail?id=1NNbzYS2oDwVVq3Uthkyvx8vA4FnMKrJJ&sz=w1000",
+          info: "Meraih penghargaan sebagai Karyawan Terbaik di Jabis Group atas pencapaian luar biasa dalam dedikasi dan produktivitas kerja harian. Selama periode tersebut, saya berhasil mencatatkan rekam jejak produksi konten yang konsisten dengan rata-rata 7 hingga 9 konten per hari, memadukan kecepatan eksekusi, kualitas visual, serta strategi riset pasar yang mendalam untuk mendongkrak performa digital perusahaan."
+        }
+      ]
+    }
+  };
+
+  // Variabel carousel
+  let carouselInterval = null;
+  let currentCarouselSlide = 0;
+
+  // =============================================
+  // FUNGSI MODAL DETAIL PENGALAMAN
+  // =============================================
+  function openModal(key) {
+    const data = experienceData[key];
+    if (!data) return;
+    
+    document.getElementById('modalTitle').innerText = data.title;
+    document.getElementById('modalCategory').innerText = data.category;
+    document.getElementById('modalDate').innerText = data.date;
+
+    // Tampilkan teks standar atau konten kaya
+    const plainTextEl = document.getElementById('modalText');
+    const richEl = document.getElementById('modalRichContent');
+
+    if (data.richContent) {
+      plainTextEl.style.display = 'none';
+      plainTextEl.innerText = '';
+      richEl.style.display = 'block';
+      richEl.innerHTML = data.richContent;
+    } else {
+      richEl.style.display = 'none';
+      richEl.innerHTML = '';
+      plainTextEl.style.display = 'block';
+      plainTextEl.innerText = data.text;
+    }
+
+    stopCarousel();
+    
+    const gallery = document.getElementById('modalGallery');
+    const carouselArea = document.getElementById('carouselArea');
+    const sertifikatList = document.getElementById('sertifikatList');
+    
+    gallery.innerHTML = '';
+    gallery.className = 'modal-gallery-grid';
+    carouselArea.style.display = 'none';
+    sertifikatList.innerHTML = '';
+    sertifikatList.style.display = 'none';
+    
+    // Carousel (khusus sertifikat)
+    if (data.carousel && data.carousel.length > 0) {
+      buildCarousel(data.carousel);
+      carouselArea.style.display = 'block';
+      startCarousel();
+    }
+
+    // Daftar sertifikat format baru
+    if (data.sertifikatList && data.sertifikatList.length > 0) {
+      sertifikatList.style.display = 'flex';
+      buildSertifikatList(data.sertifikatList);
+    }
+    
+    // Gallery foto biasa
+    if (data.images && data.images.length > 0) {
+      gallery.style.display = 'grid';
+      
+      if (data.images.length === 1) {
+        gallery.classList.add('single-col');
+      }
+      
+      data.images.forEach(imgData => {
+        const box = document.createElement('div');
+        box.className = 'gallery-img-box';
+
+        if (imgData.type === 'image' && imgData.src) {
+          const img = document.createElement('img');
+          img.src = imgData.src;
+          img.alt = 'Gambar';
+          box.appendChild(img);
+        } else if (imgData.type === 'placeholder') {
+          const fb = document.createElement('div');
+          fb.className = 'gallery-img-fallback';
+          fb.innerHTML = `<span class="fallback-icon">📷</span><span class="fallback-text">${imgData.label || 'FOTO MENYUSUL'}</span>`;
+          box.appendChild(fb);
+        }
+
+        gallery.appendChild(box);
+      });
+    } else {
+      gallery.style.display = 'none';
+    }
+    
+    document.getElementById('detailModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  // =============================================
+  // BANGUN DAFTAR SERTIFIKAT (FORMAT BARU)
+  // =============================================
+  function buildSertifikatList(items) {
+    const container = document.getElementById('sertifikatList');
+    container.innerHTML = '';
+
+    items.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'sertifikat-item';
+
+      // Nama sertifikat
+      const title = document.createElement('h4');
+      title.innerText = item.nama;
+      card.appendChild(title);
+
+      // Foto (bisa diklik untuk zoom)
+      const photoWrap = document.createElement('div');
+      photoWrap.className = 'sertifikat-photo';
+
+      if (item.foto) {
+        const img = document.createElement('img');
+        img.src = item.foto;
+        img.alt = item.nama;
+        img.loading = 'lazy';
+        img.onclick = () => openLightbox(item.foto, item.nama);
+        photoWrap.appendChild(img);
+      } else {
+        const fb = document.createElement('div');
+        fb.className = 'gallery-img-fallback';
+        fb.innerHTML = `<span class="fallback-icon">📷</span><span class="fallback-text">FOTO MENYUSUL</span>`;
+        photoWrap.appendChild(fb);
+      }
+      card.appendChild(photoWrap);
+
+      // Informasi
+      const info = document.createElement('p');
+      info.className = 'sertifikat-info';
+      info.innerHTML = `<strong>Informasi:</strong> ${item.info || '-'}`;
+      card.appendChild(info);
+
+      container.appendChild(card);
+    });
+  }
+
+  // =============================================
+  // LIGHTBOX ZOOM FOTO
+  // =============================================
+  function openLightbox(src, caption) {
+    const overlay = document.getElementById('lightboxOverlay');
+    const img = document.getElementById('lightboxImg');
+    const cap = document.getElementById('lightboxCaption');
+
+    img.src = src;
+    img.alt = caption || 'Zoom Sertifikat';
+    cap.innerText = caption || '';
+
+    overlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideLightbox() {
+    document.getElementById('lightboxOverlay').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeLightbox(event) {
+    if (event.target.id === 'lightboxOverlay') {
+      hideLightbox();
+    }
+  }
+
+  // =============================================
+  // CAROUSEL
+  // =============================================
+  function buildCarousel(images) {
+    const slidesContainer = document.getElementById('carouselSlides');
+    const dotsContainer = document.getElementById('carouselDots');
+    slidesContainer.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    currentCarouselSlide = 0;
+    
+    images.forEach((imgData, index) => {
+      const slide = document.createElement('div');
+      slide.className = 'carousel-slide';
+      if (imgData.type === 'image' && imgData.src) {
+        const img = document.createElement('img');
+        img.src = imgData.src;
+        img.alt = `Sertifikat ${index + 1}`;
+        slide.appendChild(img);
+      }
+      slidesContainer.appendChild(slide);
+      
+      const dot = document.createElement('span');
+      dot.className = 'carousel-dot';
+      if (index === 0) dot.classList.add('active');
+      dot.onclick = () => goToSlide(index);
+      dotsContainer.appendChild(dot);
+    });
+  }
+
+  function goToSlide(index) {
+    const slides = document.getElementById('carouselSlides');
+    const dots = document.querySelectorAll('.carousel-dot');
+    const totalSlides = slides.children.length;
+    if (totalSlides === 0) return;
+    
+    currentCarouselSlide = index;
+    slides.style.transform = `translateX(-${currentCarouselSlide * 100}%)`;
+    
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === currentCarouselSlide);
+    });
+    
+    resetCarouselInterval();
+  }
+
+  function nextSlide() {
+    const slides = document.getElementById('carouselSlides');
+    const totalSlides = slides.children.length;
+    if (totalSlides === 0) return;
+    
+    currentCarouselSlide = (currentCarouselSlide + 1) % totalSlides;
+    goToSlide(currentCarouselSlide);
+  }
+
+  function startCarousel() {
+    stopCarousel();
+    carouselInterval = setInterval(nextSlide, 3000);
+  }
+
+  function stopCarousel() {
+    if (carouselInterval) {
+      clearInterval(carouselInterval);
+      carouselInterval = null;
+    }
+  }
+
+  function resetCarouselInterval() {
+    stopCarousel();
+    carouselInterval = setInterval(nextSlide, 3000);
+  }
+
+  function hideModal() {
+    document.getElementById('detailModal').classList.remove('active');
+    document.body.style.overflow = '';
+    stopCarousel();
+  }
+
+  function closeModal(event) {
+    if (event.target.id === 'detailModal') {
+      hideModal();
+    }
+  }
+
+  // =============================================
+  // FUNGSI MODAL PORTFOLIO KOMINFO
+  // =============================================
+  function openPortoPopup() {
+    document.getElementById('portoPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hidePortoPopup() {
+    document.getElementById('portoPopup').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closePortoPopup(event) {
+    if (event.target.id === 'portoPopup') {
+      hidePortoPopup();
+    }
+  }
+
+  // =============================================
+  // FUNGSI MODAL KONTEN VIDEO REELS (BARU)
+  // =============================================
+  function showVideoReels() {
+    document.getElementById('videoReelsPopup').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function hideVideoReels() {
+    document.getElementById('videoReelsPopup').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function closeVideoReels(event) {
+    if (event.target.id === 'videoReelsPopup') {
+      hideVideoReels();
+    }
+  }
+
+  // =============================================
+  // TOGGLE DARK / LIGHT MODE
+  // =============================================
+  function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const btn = document.getElementById('themeBtn');
+    
+    if (currentTheme === 'dark') {
+      document.documentElement.removeAttribute('data-theme');
+      btn.innerHTML = '🌙 Mode Gelap';
+      localStorage.setItem('theme', 'light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      btn.innerHTML = '☀️ Mode Terang';
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme');
+    const btn = document.getElementById('themeBtn');
+    
+    if (savedTheme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      btn.innerHTML = '☀️ Mode Terang';
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+      btn.innerHTML = '🌙 Mode Gelap';
+    }
+  });
+
+  // =============================================
+  // TUTUP MODAL / LIGHTBOX DENGAN TOMBOL ESC
+  // =============================================
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      hideModal();
+      hidePortoPopup();
+      hideVideoReels();
+      hideLightbox();
+    }
+  });
+</script>
+</body>
+</html>
